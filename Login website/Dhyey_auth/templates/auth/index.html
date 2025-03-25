@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Auth</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+:root {
+    --primary-color: #000000; /* Primary color for buttons */
+    --primary-color-dark: #000000; /* Darkened primary color for hover effect */
+}
+.bg-white {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+}
+
+.bg-white:hover {
+    transform: scale(1.05); /* Slightly scale up the card */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+}
+#myvideo{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    left: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+} 
+body{
+    height: 100%;
+    width:100%;
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background-color: #ffffff;
+    z-index: -1;
+    filter: blur(0px);
+    opacity: 0.55;
+}
+
+div.loginHeader {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin:200px;
+}
+
+div.loginHeader h1 {
+    font-size: 90px;
+    font-weight: bolder;
+    color: var(--primary-color);
+    margin-bottom: 0;
+    -webkit-text-stroke: 2px #000000;
+    font-family: libre-baskerville-regular;
+}
+
+div.loginHeader h3 {
+    font-size: 80px;
+    font-weight: bolder;
+    color: var(--primary-color);
+    margin-top: 0;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px #000000;
+    font-family: "Libre Baskerville", serif;
+}
+
+div.loginBody form {
+    margin: 0 auto;
+    width: 450px;
+    background: rgba(0, 0, 0, 0.77);
+    padding: 50px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+}
+
+div.loginInputsContainer {
+    margin: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+div.loginInputsContainer label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    text-indent: -280px;
+}
+
+div.loginInputsContainer input {
+    height: fit-content;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+div.loginButtonContainer {
+    margin-top: 40px;
+    text-align: center;
+    padding:30px;
+}
+
+/* Button Styling */
+div.loginButtonContainer button {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--primary-color); /* Use CSS variable */
+    border: none; /* Remove default border */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Specific font family */
+}
+
+div.loginButtonContainer button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color); /* Use CSS variable */
+    border-radius: 30px; /* Match the border-radius */
+    z-index: -2;
+}
+
+div.loginButtonContainer button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--primary-color-dark); /* Darkened primary color for hover effect */
+    transition: all .3s;
+    border-radius: 30px; /* Match the border-radius */
+    z-index: -1;
+}
+
+div.loginButtonContainer button:hover {
+    color: #fff; /* White text color on hover */
+}
+
+div.loginButtonContainer button:hover::before {
+    width: 100%;
+}
+
+/* Optional reset for presentation */
+* {
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-top: 50px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 1rem; /* Adjusted for better readability */
+    margin-bottom: 2rem;
+    color: #777;
+    font-family: "Libre Baskerville", serif;
+    text-shadow: 3px 3px 3px #000000;
+}
+
+h3 {
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+div.loginBody.greeting{
+    font-weight: bolder;
+}
+
+span {
+    display: block;
+    margin-top: 2rem;
+    font-size: .7rem;
+    color: #777;
+}
+
+span a {
+    font-size: .7rem;
+    color: #999;
+    text-decoration: underline;
+}
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    };
+
+    </style>
+</head>
+<body>
+    {% load static %}
+<video plays-inline loop muted autoplay height="1080" width="1920"
+id="myvideo">
+    <source src="{% static 'videos/index bacground video.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    <div class="background"></div>
+
+    <div class="loginHeader">
+        <h1>Welcome To NLP</h1>
+        <h3 style="text-shadow: 3px 3px 3px #000000;">NATURAL LANGUAGE PROCESSING</h3>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-gray-900" style="font-weight: bolder;font-size:70px">AI Communication Tools</h1>
+        <p class="text-gray-600 mt-2" style="font-weight: bolder; font-size:40px">Advanced communication solutions powered by artificial intelligence</p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="bg-white shadow-md rounded-lg p-6"><button onclick="window.location.href='http://localhost:8000/'">
+            <h2 class="text-xl font-semibold text-gray-900">Text to Speech</h2>
+            <p class="text-gray-600 mt-2">Powerful & efficient text to speech conversion using AI technology</p>
+        </button>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-6"><button onclick="window.location.href='http://localhost:7000/'">
+            <h2 class="text-xl font-semibold text-gray-900">Speech to Text</h2>
+            <p class="text-gray-600 mt-2">Convert Speech to text with high accuracy using Whisper AI</p>
+        </button>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-6"><button onclick="window.location.href='http://localhost:9966/'">
+            <h2 class="text-xl font-semibold text-gray-900">Sign language converter</h2>
+            <p class="text-gray-600 mt-2">Convert sign language to text & speech using highly efficient KNN classifiers</p>
+        </button>
+        </div>
+    </div>
+
+    <div class="loginBody">
+        <h3 class="greeting" style="font-weight: bolder;">Hello {{ fname }}</h3>
+        <h3 class="status" style="font-weight: bolder;">You are Successfully Logged in</h3>
+        <div class="loginButtonContainer">
+            <a href="/signout" class="btn btn-primary custom-button">Sign Out</a>
+        </div>
+        {% else %}
+        <div class="loginButtonContainer">
+            <a href="/signin" class="btn btn-primary custom-button">Sign In</a>
+            <a href="/signup" class="btn btn-secondary custom-button">Sign Up</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Display messages -->
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    <!-- Optional Bootstrap JS for functionality like dismissible alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

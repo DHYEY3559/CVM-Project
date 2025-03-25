@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription Results</title>
+    <style>
+        #myvideo{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: 0;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 3px #007bff;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 600px;
+        }
+        li {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #555;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 10px 0;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+    <video plays-inline loop muted autoplay height="1080" width="1920" style="position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: 0;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;"
+id="myvideo">
+    <source src="{% static 'videos/index bacground video.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    <h1>Transcription Results</h1>
+    <ul>
+        {% for transcription in transcriptions %}
+            <li>
+                <strong>Audio File:</strong> {{ transcription.audio_file.name }}<br>
+                <strong>Transcription:</strong> {{ transcription.transcription }}<br>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Auth</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="background"></div>
+    <div class="container">
+        <div class="loginHeader">
+            <h1>IMS</h1>
+            <h3>Inventory Management System</h3>
+        </div>
+        <div class="loginBody">
+        <form action="/signin" method="post">
+            {% csrf_token %}
+            <div class="loginInputsContainer">
+                <label for="">Username</label>
+                <input type="text" id="username" name="username" placeholder="create a username(only letters and numbers)"/>
+            </div>             
+                <div class="loginInputsContainer">
+                <label for="">Password</label>
+                <input type="password" id="pass1" name="pass1" placeholder="Create a password"/>
+            </div>
+            <div class="loginButtonContainer">
+                <button>Login</button>         
+            </div>
+        </form>
+        </div>
+    </div>
+        
+
+    <style>
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            background-color: #6601ff;
+            background-image: url('../images/login-bg.jpg') ;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+            filter: blur(0px);
+            opacity: 0.55;
+        }   
+        
+        div.loginHeader {
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+        
+        div.loginHeader h1 {
+            font-size: 90px;
+            font-weight: bolder;
+            color: #6601ff;
+            margin-bottom: 0%;
+            -webkit-text-stroke: 2px #000000;
+        }
+        
+        div.loginHeader h3 {
+            font-size: 80px;
+            font-weight: bolder;
+            color: #6601ff;
+            margin-top: 0%;
+            text-transform: uppercase;
+            -webkit-text-stroke: 2px #000000;
+        }
+        
+        div.loginBody form {
+            margin:0 auto;
+            width: 450px;
+            background: rgba(0, 0, 0, 0.77);
+            padding: 50px;
+            border: 2px solid #6601ff ;
+            border-radius: 50px;
+        }
+        div.loginInputsContainer {
+            margin: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        div.loginInputsContainer label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+            color:#ffffff;
+            text-align: center;
+            text-indent: -280px; 
+        }
+        
+        div.loginInputsContainer input {
+            height: fit-content;
+            width: 100%;
+            border: 2px#6601ff solid;
+            font-size: 20px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        
+        div.loginButtonContainer {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        div.loginButtonContainer button {
+            font-size: 30px;
+            padding: 5px 80px;
+            background:#6601ff;
+            color:#ffffff;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>    
+
+
+
+
+
+        <script src="" async defer></script>
+    </body>
+</html>

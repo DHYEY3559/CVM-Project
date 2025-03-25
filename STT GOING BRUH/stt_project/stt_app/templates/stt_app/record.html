@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Audio</title>
+    <style>
+        #myvideo{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: 0;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.5s ease-in-out;
+        }
+        form:hover {
+            box-shadow: 10px 10px 10px #007bff; /* Shadow effect */
+            transform: scale(1.05); /* Slight scaling effect */
+            transition: all 0.5s ease-in-out; /* Smooth transition */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 3px #007bff;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input[type="number"] {
+            width: 94.5%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+<video plays-inline loop muted autoplay height="1080" width="1920" style="position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: 0;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;"
+id="myvideo">
+    <source src="{% static 'videos/index bacground video.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    <h1>Record Audio</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="duration">Recording Duration (seconds):</label>
+        <input type="number" id="duration" name="duration" value="10" min="1" required>
+        <button type="submit">Start Recording</button>
+    </form>
+    <br>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech-to-Text</title>
+    <style>
+        #myvideo{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: 0;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            color: rgb(255, 255, 255);
+            margin-bottom: 20px;
+            text-shadow:3px 3px 3px #007bff;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        li {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+        }
+        li:hover{
+            box-shadow: 10px 10px 10px #007bff; /* Shadow effect */
+            transform: scale(1.05); /* Slight scaling effect */
+            transition: all 0.004s ease-in-out;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Speech-to-Text Transcription</h1>
+    <ul>
+        <li><a href="{% url 'record' %}">Record Audio</a></li>
+        <li><a href="{% url 'upload' %}">Upload Audio File</a></li>
+        <li><a href="{% url 'results' %}">View Results</a></li>
+    </ul>
+    {% load static %}
+<video plays-inline loop muted autoplay height="1080" width="1920" style="position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: 0;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;"
+id="myvideo">
+    <source src="{% static 'videos/index bacground video.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</body>
+</html>

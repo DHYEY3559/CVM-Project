@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "signin",
+        "Signup",
+        "stylesheet"
+    ],
+    "cSpell.ignoreWords": [
+        "endfor",
+        "fname",
+        "myuser",
+        "signout"
+    ],
+    "cSpell.enableFiletypes": [
+        "django-html"
+    ]
+}

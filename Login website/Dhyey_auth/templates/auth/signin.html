@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Auth</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        {% load static %}
+<video plays-inline loop muted autoplay height="1080" width="1920"
+id="myvideo">
+    <source src="{% static 'videos/index bacground video.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+            
+        </video>
+        <div class="background"></div>
+    <div class="container">
+        <div class="loginHeader">
+            <h1>NLP</h1>
+            <h3>NATURAL LANGUAGE PROCESSING</h3>
+        </div>
+        <div class="loginBody">
+        <form action="/signin" method="post">
+            {% csrf_token %}
+            <div class="loginInputsContainer">
+                <label for="">Username</label>
+                <input type="text" id="username" name="username" placeholder="Create Username"/>
+            </div>             
+                <div class="loginInputsContainer">
+                <label for="">Password</label>
+                <input type="password" id="pass1" name="pass1" placeholder="Create Password"/>
+            </div>
+            <div class="loginButtonContainer">
+                <button>Login</button>         
+            </div>
+        </form>
+        </div>
+    </div>
+        
+
+    <style>
+        #myvideo{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: 0;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        } 
+        .background {
+            position: absolute;                                                     
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            background-color:#ffffff;
+            background-image: url('../images/login-bg.jpg') ;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+            filter: blur(0px);
+            opacity: 0.55;
+        }   
+        
+        div.loginHeader {
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+        
+        div.loginHeader h1 {
+            font-size: 90px;
+            font-weight: bolder;
+            color: #0178ffe1;
+            margin-bottom: 0%;
+            -webkit-text-stroke: 2px #000000;
+            font-family: libre-baskerville-regular;
+            
+        }
+        
+        div.loginHeader h3 {
+            font-size: 60px;
+            font-weight: bolder;
+            color: #0178ffe1;
+            margin-top: 0%;
+            text-transform: uppercase;
+            -webkit-text-stroke: 2px #000000;
+            font-family: libre-baskerville-regular;
+            
+        }
+        
+        
+        div.loginBody form {
+            margin:0 auto;
+            width: 550px;
+
+            background: rgba(0, 0, 0, 0.77);
+            padding: 50px;
+            border: 2px solid #0178ffe1 ;
+            border-radius: 50px;
+            transition: all 0.4s;
+        }
+        div.loginBody form:hover{
+            transform: scale(1.1);
+            box-shadow: 0px 8px 15px #0178ffe1;
+        }
+        div.loginInputsContainer {
+            margin: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        div.loginInputsContainer label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+            color:#ffffff;
+            text-align: center;
+            text-indent: -280px; 
+        }
+        
+        div.loginInputsContainer input {
+            height: fit-content;
+            width: 100%;
+            border: 2px #0178ffe1 solid;
+            font-size: 20px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        
+        div.loginButtonContainer {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        div.loginButtonContainer button {
+            font-size: 30px;
+            padding: 5px 80px;
+            background:#0178ffe1;
+            color:#ffffff;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .libre-baskerville-regular {
+            font-family: "Libre Baskerville", serif;
+            font-weight: 400;
+            font-style: normal;
+            };   
+    </style>    
+
+
+
+
+
+        <script src="" async defer></script>
+    </body>
+</html>
